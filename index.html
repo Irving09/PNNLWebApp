@@ -2,17 +2,28 @@
 <html>
 <head>
 	<title>PNNL Web App</title>
+	<link rel="stylesheet" href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css'>
 </head>
 	
 <body ng-app='myApp'>
-	<div ng-controller='myController as ctrl'>
+	<div class='h1'>
+		PNNL Web Coding Challenge
+	</div>
+	<div ng-controller='myController as ctrl' class='container'>
 		<input ng-model='start' ng-init='start=1'>
 		<input ng-model='end' ng-init='end=100'>
 		<br>
 		<button ng-click='ctrl.executeChallenge(start, end)'>Test</button>
 
 		<div ng-repeat='result in ctrl.printOutput track by $index'>
-			{{result}}
+			<!-- <div class='row'>
+				<div class='col-md-1'>
+					{{$index + ctrl.start}}
+				</div>
+				<div class='col-md-1'>
+					{{result}}
+				</div>
+			</div> -->
 		</div>
 	</div>
 
