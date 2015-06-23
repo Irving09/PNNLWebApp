@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>PNNL Web App</title>
+</head>
+	
+<body ng-app='myApp'>
+	<div ng-controller='myController as ctrl'>
+		<input ng-model='start' ng-init='start=1'>
+		<input ng-model='end' ng-init='end=100'>
+		<br>
+		<button ng-click='ctrl.executeChallenge(start, end)'>Test</button>
+
+		<div ng-repeat='result in ctrl.printOutput track by $index'>
+			{{result}}
+		</div>
+	</div>
+
+	<script type='text/javascript' src='https://code.angularjs.org/1.4.1/angular.min.js'></script>
+	<script type='text/javascript' src='./myApp.js'></script>
+</body>
+</html>
