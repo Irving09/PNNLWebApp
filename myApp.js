@@ -24,6 +24,8 @@
 		ctrl.executeChallenge = function(start, end) {
 			if (start == null || end == null) return;
 			ctrl.printOutput = [];
+			ctrl.start = start;
+			ctrl.end = end;
 			var isDivisibleBy3, isDivisibleBy5;
 
 			for (var i = start; i <= end; i++) {
@@ -40,6 +42,10 @@
 					ctrl.printOutput.push(i);
 				}
 			}
+		};
+
+		ctrl.convertToNumber = function(numString) {
+			return Number(numString);
 		};
 	}
 })();

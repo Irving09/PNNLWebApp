@@ -5,26 +5,41 @@
 	<link rel="stylesheet" href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css'>
 </head>
 	
-<body ng-app='myApp'>
-	<div class='h1'>
-		PNNL Web Coding Challenge
+<body ng-app='myApp' class='container'>
+	<div class='h1 text-center'>
+		<strong>PNNL Web Coding Challenge</strong>
 	</div>
-	<div ng-controller='myController as ctrl' class='container'>
-		<input ng-model='start' ng-init='start=1'>
-		<input ng-model='end' ng-init='end=100'>
-		<br>
-		<button ng-click='ctrl.executeChallenge(start, end)'>Test</button>
+	<div ng-controller='myController as ctrl'>
+		<div class='row' style='padding-top : 50px; padding-bottom : 20px;'>
+			<div class='col-md-2'></div>
+			<form class='form-inline'>
+			  <div class='form-group'>
+			    <label for='startIteration'>Start</label>
+		    	<input class='form-control' id='startIteration' ng-model='start' placeholder='Starting Number' ng-init='start=1'></input>
+			  </div>
 
-		<div ng-repeat='result in ctrl.printOutput track by $index'>
-			<!-- <div class='row'>
-				<div class='col-md-1'>
-					{{$index + ctrl.start}}
-				</div>
-				<div class='col-md-1'>
-					{{result}}
-				</div>
-			</div> -->
+			  <div class="form-group">
+			    <label for='endingIteration'>End</label>
+		    	<input class='form-control' id='endingIteration' ng-model='end' placeholder='Ending Number' ng-init='end=100'></input>
+			  </div>
+			  <button type='submit' class='btn btn-primary' ng-click='ctrl.executeChallenge(start, end)'>Test</button>
+			</form>
 		</div>
+		
+		<table class='table table-striped'>
+		<thead>
+			<tr>
+				<th class='text-center'>Number</th>
+				<th class='text-center'>Printed Output</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat='result in ctrl.printOutput track by $index'>
+				<td class='lead text-center'>{{ctrl.convertToNumber($index) + ctrl.convertToNumber(ctrl.start)}}</td>
+				<td class='lead text-center'>{{result}}</td>
+			</tr>
+		</tbody>
+		</table>	
 	</div>
 
 	<script type='text/javascript' src='https://code.angularjs.org/1.4.1/angular.min.js'></script>
